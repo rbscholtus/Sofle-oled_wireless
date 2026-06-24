@@ -5,7 +5,6 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
@@ -63,20 +62,6 @@
             tapping-term-ms = <333>;
         };
 
-        sensor_rgb_ug: sensor_rgb_ug {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            label = "SENSOR_RGB_UG";
-            #sensor-binding-cells = <2>;
-            bindings = <&rgb_ug>, <&rgb_ug>;
-        };
-
-        sensor_bl: sensor_bl {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            label = "SENSOR_BL";
-            #sensor-binding-cells = <2>;
-            bindings = <&bl>, <&bl>;
-        };
-
         once_mt: once_mt {
             compatible = "zmk,behavior-hold-tap";
             label = "ONCE_MT";
@@ -105,6 +90,20 @@
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
             keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        sensor_rgb_BR: sensor_rgb_BR {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "SENSOR_RGB_BR";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        };
+
+        sensor_rgb_SP: sensor_rgb_SP {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "SENSOR_RGB_SP";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_SPI>, <&rgb_ug RGB_SPD>;
         };
     };
 
@@ -167,16 +166,14 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans        &kp F1             &kp F2           &kp F3           &kp F4           &kp F5                                          &kp F6     &kp F7        &kp F8    &kp F9         &kp F10  &kp F11
-&out OUT_TOG  &ext_power EP_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF  &rgb_ug RGB_SPI                                 &kp PG_UP  &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &none    &kp F12
-&none         &none              &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFR  &rgb_ug RGB_SPD                                 &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &none    &none
-&bt BT_CLR    &bt BT_SEL 4       &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0     &rgb_ug RGB_TOG    &bl BL_TOG  &trans     &kp LG(LEFT)  &none     &kp LG(RIGHT)  &none    &none
-                                 &trans           &trans           &trans           &trans           &trans             &trans      &trans     &trans        &trans    &trans
+&trans        &kp F1             &kp F2           &kp F3           &kp F4           &kp F5                                               &kp F6     &kp F7        &kp F8    &kp F9         &kp F10  &kp F11
+&out OUT_TOG  &ext_power EP_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF  &rgb_ug RGB_SPI                                      &kp PG_UP  &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &none    &kp F12
+&none         &none              &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFR  &rgb_ug RGB_SPD                                      &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &none    &none
+&bt BT_CLR    &bt BT_SEL 4       &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0     &rgb_ug RGB_TOG    &rgb_ug RGB_EFF  &trans     &kp LG(LEFT)  &none     &kp LG(RIGHT)  &none    &none
+                                 &trans           &trans           &trans           &trans           &trans             &trans           &trans     &trans        &trans    &trans
             >;
 
-            sensor-bindings =
-                <&sensor_rgb_ug RGB_BRI RGB_BRD>,
-                <&sensor_bl BL_INC BL_DEC>;
+            sensor-bindings = <&sensor_rgb_BR>, <&sensor_rgb_SP>;
         };
 
         adjust_layer {

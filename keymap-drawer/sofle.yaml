@@ -166,7 +166,7 @@ layers:
   - {t: BT, h: '1'}
   - {t: BT, h: '0'}
   - RGB TOG
-  - '&bl BL_TOG'
+  - RGB EFF
   - {t: ▽, type: trans}
   - Gui+LEFT
   - ''

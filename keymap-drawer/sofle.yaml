@@ -187,4 +187,4 @@ layers:
   - ''
 combos:
 - p: [36, 37, 50]
-  k: '&sys_reset'
+  k: '&bootloader'

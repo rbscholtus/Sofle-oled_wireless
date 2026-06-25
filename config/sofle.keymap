@@ -40,6 +40,11 @@
             bindings = <&bootloader>;
             key-positions = <36 37 50>;
         };
+
+        sys_reset {
+            bindings = <&sys_reset>;
+            key-positions = <36 37 38>;
+        };
     };
 
     macros {
@@ -62,9 +67,9 @@
             tapping-term-ms = <333>;
         };
 
-        once_mt: once_mt {
+        mt_once: mt_once {
             compatible = "zmk,behavior-hold-tap";
-            label = "ONCE_MT";
+            label = "MT_ONCE";
             bindings = <&once_kp_macro>, <&kp>;
 
             #binding-cells = <2>;
@@ -75,7 +80,7 @@
         comma_lpar_lt: comma_lpar_lt {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_LPAR_LT";
-            bindings = <&once_mt LT COMMA>, <&once_mt LT LPAR>;
+            bindings = <&mt_once LT COMMA>, <&mt_once LT LPAR>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
@@ -85,7 +90,7 @@
         dot_rpar_gt: dot_rpar_gt {
             compatible = "zmk,behavior-mod-morph";
             label = "DOT_RPAR_GT";
-            bindings = <&once_mt GT DOT>, <&once_mt GT RPAR>;
+            bindings = <&mt_once GT DOT>, <&mt_once GT RPAR>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
@@ -123,8 +128,8 @@
             bindings = <
 &kp ESC    &kp N1            &kp N2            &kp N3            &kp N4            &kp N5                                         &kp N6    &kp N7     &kp N8          &kp N9        &kp N0     &kp BSLH
 &kp GRAVE  &kp X             &kp P             &kp D             &kp M             &kp Q                                          &kp Z     &kp Y      &kp O           &kp U         &kp MINUS  &kp EQUAL
-&kp TAB    &once_mt LG(A) S  &kp N             &kp T             &kp H             &kp V                                          &kp G     &kp C      &kp A           &kp E         &kp I      &kp SEMI
-&kp DEL    &once_mt LG(Z) F  &once_mt LG(X) B  &once_mt LG(C) K  &once_mt LG(V) L  &kp J               &kp C_MUTE    &kp C_PLAY   &kp BSPC  &kp W      &comma_lpar_lt  &dot_rpar_gt  &kp FSLH   &kp BACKSLASH
+&kp TAB    &mt_once LG(A) S  &kp N             &kp T             &kp H             &kp V                                          &kp G     &kp C      &kp A           &kp E         &kp I      &kp SEMI
+&kp DEL    &mt_once LG(Z) F  &mt_once LG(X) B  &mt_once LG(C) K  &mt_once LG(V) L  &kp J               &kp C_MUTE    &kp C_PLAY   &kp BSPC  &kp W      &comma_lpar_lt  &dot_rpar_gt  &kp FSLH   &kp BACKSLASH
                              &kp GLOBE         &kp LCTRL         &mt LALT ENTER    &mt_tappref LCMD R  &sk LSHIFT    &lt 2 SPACE  &kp SQT   &kp ENTER  &kp LBKT        &kp RBKT
             >;
 
@@ -166,11 +171,11 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans        &kp F1             &kp F2           &kp F3           &kp F4           &kp F5                                               &kp F6     &kp F7        &kp F8    &kp F9         &kp F10  &kp F11
-&out OUT_TOG  &ext_power EP_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF  &rgb_ug RGB_SPI                                      &kp PG_UP  &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &none    &kp F12
-&none         &none              &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFR  &rgb_ug RGB_SPD                                      &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &none    &none
-&bt BT_CLR    &bt BT_SEL 4       &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0     &rgb_ug RGB_TOG    &rgb_ug RGB_EFF  &trans     &kp LG(LEFT)  &none     &kp LG(RIGHT)  &none    &none
-                                 &trans           &trans           &trans           &trans           &trans             &trans           &trans     &trans        &trans    &trans
+&trans        &kp F1        &kp F2           &kp F3           &kp F4           &kp F5                                               &kp F6     &kp F7        &kp F8    &kp F9         &kp F10  &kp F11
+&out OUT_TOG  &none         &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF  &rgb_ug RGB_SPI                                      &kp PG_UP  &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &none    &kp F12
+&none         &none         &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFR  &rgb_ug RGB_SPD                                      &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &none    &none
+&bt BT_CLR    &bt BT_SEL 4  &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0     &rgb_ug RGB_TOG    &rgb_ug RGB_EFF  &trans     &kp LG(LEFT)  &none     &kp LG(RIGHT)  &none    &none
+                            &trans           &trans           &trans           &trans           &trans             &trans           &trans     &trans        &trans    &trans
             >;
 
             sensor-bindings = <&sensor_rgb_BR>, <&sensor_rgb_SP>;

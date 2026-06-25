@@ -109,6 +109,15 @@
             #sensor-binding-cells = <0>;
             bindings = <&rgb_ug RGB_SPI>, <&rgb_ug RGB_SPD>;
         };
+
+        bspc_del: bspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BSPC_DEL";
+            bindings = <&kp BSPC>, <&kp DEL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -125,11 +134,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESC    &kp N1            &kp N2            &kp N3            &kp N4            &kp N5                                         &kp N6    &kp N7     &kp N8          &kp N9        &kp N0     &none
-&kp GRAVE  &kp X             &kp P             &kp D             &kp M             &kp Q                                          &kp Z     &kp Y      &kp O           &kp U         &kp MINUS  &kp EQUAL
-&kp TAB    &mt_once LG(A) S  &kp N             &kp T             &kp H             &kp V                                          &kp G     &kp C      &kp A           &kp E         &kp I      &kp SEMI
-&kp DEL    &mt_once LG(Z) F  &mt_once LG(X) B  &mt_once LG(C) K  &mt_once LG(V) L  &kp J               &kp C_MUTE    &kp C_PLAY   &kp BSPC  &kp W      &comma_lpar_lt  &dot_rpar_gt  &kp FSLH   &kp BACKSLASH
-                             &kp GLOBE         &kp LCTRL         &mt LALT ENTER    &mt_tappref LCMD R  &sk LSHIFT    &lt 2 SPACE  &kp SQT   &kp ENTER  &kp LBKT        &kp RBKT
+&kp ESC    &kp N1            &kp N2            &kp N3            &kp N4            &kp N5                                         &kp N6     &kp N7     &kp N8          &kp N9        &kp N0     &none
+&kp GRAVE  &kp X             &kp P             &kp D             &kp M             &kp Q                                          &kp Z      &kp Y      &kp O           &kp U         &kp MINUS  &kp EQUAL
+&kp TAB    &mt_once LG(A) S  &kp N             &kp T             &kp H             &kp V                                          &kp G      &kp C      &kp A           &kp E         &kp I      &kp SEMI
+&kp DEL    &mt_once LG(Z) F  &mt_once LG(X) B  &mt_once LG(C) K  &mt_once LG(V) L  &kp J               &kp C_MUTE    &kp C_PLAY   &bspc_del  &kp W      &comma_lpar_lt  &dot_rpar_gt  &kp FSLH   &kp BACKSLASH
+                             &kp GLOBE         &kp LCTRL         &mt LALT ENTER    &mt_tappref LCMD R  &sk LSHIFT    &lt 2 SPACE  &kp SQT    &kp ENTER  &kp LBKT        &kp RBKT
             >;
 
             sensor-bindings =
@@ -140,11 +149,11 @@
         windows_layer {
             label = "windows";
             bindings = <
-&kp ESC    &kp N1            &kp N2            &kp N3            &kp N4            &kp N5                                          &kp N6    &kp N7     &kp N8          &kp N9        &kp N0     &none
-&kp GRAVE  &kp X             &kp P             &kp D             &kp M             &kp Q                                           &kp Z     &kp Y      &kp O           &kp U         &kp MINUS  &kp EQUAL
-&kp TAB    &mt_once LC(A) S  &kp N             &kp T             &kp H             &kp V                                           &kp G     &kp C      &kp A           &kp E         &kp I      &kp SEMI
-&kp DEL    &mt_once LC(Z) F  &mt_once LC(X) B  &mt_once LC(C) K  &mt_once LC(V) L  &kp J                &kp C_MUTE    &kp C_PLAY   &kp BSPC  &kp W      &comma_lpar_lt  &dot_rpar_gt  &kp FSLH   &kp BACKSLASH
-                             &none             &kp LGUI          &mt LALT ENTER    &mt_tappref LCTRL R  &sk LSHIFT    &lt 3 SPACE  &kp SQT   &kp ENTER  &kp LBKT        &kp RBKT
+&kp ESC    &kp N1            &kp N2            &kp N3            &kp N4            &kp N5                                          &kp N6     &kp N7     &kp N8          &kp N9        &kp N0     &none
+&kp GRAVE  &kp X             &kp P             &kp D             &kp M             &kp Q                                           &kp Z      &kp Y      &kp O           &kp U         &kp MINUS  &kp EQUAL
+&kp TAB    &mt_once LC(A) S  &kp N             &kp T             &kp H             &kp V                                           &kp G      &kp C      &kp A           &kp E         &kp I      &kp SEMI
+&kp DEL    &mt_once LC(Z) F  &mt_once LC(X) B  &mt_once LC(C) K  &mt_once LC(V) L  &kp J                &kp C_MUTE    &kp C_PLAY   &bspc_del  &kp W      &comma_lpar_lt  &dot_rpar_gt  &kp FSLH   &kp BACKSLASH
+                             &none             &kp LGUI          &mt LALT ENTER    &mt_tappref LCTRL R  &sk LSHIFT    &lt 3 SPACE  &kp SQT    &kp ENTER  &kp LBKT        &kp RBKT
             >;
 
             sensor-bindings =
@@ -176,11 +185,11 @@
         raise_win {
             label = "raise_win";
             bindings = <
-&trans        &kp F1        &kp F2           &kp F3           &kp F4           &kp F5                                               &kp F6     &kp F7        &kp F8    &kp F9         &kp F10  &kp F11
-&out OUT_TOG  &none         &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF  &rgb_ug RGB_SPI                                      &kp PG_UP  &kp LC(LEFT)  &kp UP    &kp LC(RIGHT)  &none    &kp F12
-&to 0         &to 1         &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFR  &rgb_ug RGB_SPD                                      &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &none    &none
-&bt BT_CLR    &bt BT_SEL 4  &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0     &rgb_ug RGB_TOG    &rgb_ug RGB_EFF  &trans     &kp HOME      &none     &kp END        &none    &none
-                            &trans           &trans           &trans           &trans           &trans             &trans           &trans     &trans        &trans    &trans
+&trans        &kp F1        &kp F2           &kp F3           &kp F4           &kp F5                                            &kp F6     &kp F7        &kp F8    &kp F9         &kp F10  &kp F11
+&out OUT_TOG  &none         &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF  &none                                             &kp PG_UP  &kp LC(LEFT)  &kp UP    &kp LC(RIGHT)  &none    &kp F12
+&to 0         &to 1         &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFR  &none                                             &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &none    &none
+&bt BT_CLR    &bt BT_SEL 4  &bt BT_SEL 3     &bt BT_SEL 2     &bt BT_SEL 1     &bt BT_SEL 0  &rgb_ug RGB_TOG    &rgb_ug RGB_EFF  &trans     &kp HOME      &none     &kp END        &none    &none
+                            &trans           &trans           &trans           &trans        &trans             &trans           &trans     &trans        &trans    &trans
             >;
 
             sensor-bindings = <&sensor_rgb_BR>, <&sensor_rgb_SP>;

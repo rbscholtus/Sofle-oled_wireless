@@ -136,7 +136,7 @@ layers:
   - F10
   - F11
   - OUT TOG
-  - EP TOG
+  - ''
   - RGB HUI
   - RGB SAI
   - RGB EFF
@@ -247,3 +247,5 @@ layers:
 combos:
 - p: [36, 37, 50]
   k: '&bootloader'
+- p: [36, 37, 38]
+  k: '&sys_reset'

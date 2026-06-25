@@ -45,7 +45,7 @@ layers:
   - J
   - MUTE
   - PLAY
-  - BSPC
+  - {t: BSPC, s: DEL}
   - W
   - {t: ',', h: '&once_kp_macro LT', s: (}
   - {t: ., h: '&once_kp_macro GT', s: )}
@@ -106,7 +106,7 @@ layers:
   - J
   - MUTE
   - PLAY
-  - BSPC
+  - {t: BSPC, s: DEL}
   - W
   - {t: ',', h: '&once_kp_macro LT', s: (}
   - {t: ., h: '&once_kp_macro GT', s: )}
@@ -201,7 +201,7 @@ layers:
   - RGB HUI
   - RGB SAI
   - RGB EFF
-  - RGB SPI
+  - ''
   - PG UP
   - Ctl+LEFT
   - UP
@@ -213,7 +213,7 @@ layers:
   - RGB HUD
   - RGB SAD
   - RGB EFR
-  - RGB SPD
+  - ''
   - PG DN
   - LEFT
   - DOWN

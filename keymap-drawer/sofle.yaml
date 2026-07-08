@@ -43,8 +43,8 @@ layers:
   - {t: K, h: '&once_kp_macro LG(C)'}
   - {t: L, h: '&once_kp_macro LG(V)'}
   - J
+  - RGB TOG
   - MUTE
-  - PLAY
   - {t: BSPC, s: DEL}
   - W
   - {t: ',', h: '&once_kp_macro LT', s: (}
@@ -104,8 +104,8 @@ layers:
   - {t: K, h: '&once_kp_macro LC(C)'}
   - {t: L, h: '&once_kp_macro LC(V)'}
   - J
+  - RGB TOG
   - MUTE
-  - PLAY
   - {t: BSPC, s: DEL}
   - W
   - {t: ',', h: '&once_kp_macro LT', s: (}
@@ -139,7 +139,7 @@ layers:
   - ''
   - RGB HUI
   - RGB SAI
-  - RGB EFF
+  - RGB BRI
   - RGB SPI
   - PG UP
   - Alt+LEFT
@@ -151,7 +151,7 @@ layers:
   - {t: windows, h: toggle}
   - RGB HUD
   - RGB SAD
-  - RGB EFR
+  - RGB BRD
   - RGB SPD
   - PG DN
   - LEFT
@@ -166,7 +166,7 @@ layers:
   - {t: BT, h: '1'}
   - {t: BT, h: '0'}
   - RGB TOG
-  - RGB EFF
+  - ''
   - {t: ▽, type: trans}
   - Gui+LEFT
   - ''
@@ -201,7 +201,7 @@ layers:
   - RGB HUI
   - RGB SAI
   - RGB EFF
-  - ''
+  - RGB SPI
   - PG UP
   - Ctl+LEFT
   - UP
@@ -213,7 +213,7 @@ layers:
   - RGB HUD
   - RGB SAD
   - RGB EFR
-  - ''
+  - RGB SPD
   - PG DN
   - LEFT
   - DOWN
@@ -227,7 +227,7 @@ layers:
   - {t: BT, h: '1'}
   - {t: BT, h: '0'}
   - RGB TOG
-  - RGB EFF
+  - ''
   - {t: ▽, type: trans}
   - HOME
   - ''

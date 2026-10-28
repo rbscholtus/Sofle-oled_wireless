@@ -176,7 +176,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {t: Sft+R, h: LCMD}
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
@@ -237,7 +237,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {t: Sft+R, h: LCTRL}
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
